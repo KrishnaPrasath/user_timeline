@@ -1,0 +1,178 @@
+.wrapper {
+    display : grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.app-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+.timeline-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline-container::after{
+    background-color: #e17b77;
+    content: ' ';
+    position: absolute;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 100%;
+
+}
+
+.timeline-item{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    margin: 10px 0;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd){
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-right: 0px;
+    padding-left: 30px;
+}
+
+.timeline-item-content{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 15px;
+    text-align: right;
+    max-width: 90%;
+    position: relative;
+}
+
+.timeline-item-content::after{
+    content: ' ';
+    background-color: #fff;
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -7.5px;
+    top: calc(50% - 7.5px);
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content{
+    text-align: left;
+    align-items: flex-start;
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content::after{
+    right: auto;
+    left: -7.5px;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item-content .tag{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    text-transform: uppercase;
+
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content .tag{
+    left: auto;
+    right: 5px;
+}
+
+.timeline-item-content .time{
+    color: #777777;
+    font-size: 12px;
+}
+
+.timeline-item-content p{
+    font-size: 16px;
+    line-height: 24px;
+    margin: 15px 0;
+    max-width: 250px;
+}
+
+.timeline-item-content a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.timeline-item-content a::after{
+    content: ' >';
+    font-size: 12px;
+}
+
+.timeline-item-content .circle{
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #e17b77;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 7.5px);
+    right: -40px;
+    z-index: 100;
+}
+
+.timeline-item:nth-child(odd) .timeline-item-content .circle{
+    right: auto;
+    left: -40px;
+}
+
+@media only screen and (max-width: 927px){
+    .timeline-item-content,
+    .timeline-item:nth-child(odd) .timeline-item-content {
+        padding: 15px 10px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .timeline-item-content .tag{
+        width: calc(100% - 10px);
+    }
+
+    .timeline-item-content time{
+        margin-top: 20px;
+    }
+
+    .timeline-item-content a{
+        text-decoration: underline;
+    }
+
+    .timeline-item-content a::after{
+        display: none;
+    }
+
+}
