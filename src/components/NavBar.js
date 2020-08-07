@@ -4,24 +4,24 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
 const NavBar = () => {
 
-    const [ collapsed, setCollapsed ] = useState(true);
-    const toggleNavbar = () => setCollapsed(!collapsed);
+    const [ collapsed, setCollapsed ] = useState(false);
+    const toggle = () => setCollapsed(!collapsed);
 
     return(
         <>
-            <Navbar color="faded" light className="shadow-sm">
-                <NavbarBrand href="/" className="mr-auto">reactstrap</NavbarBrand>
-                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-                <Collapse isOpen={!collapsed} navbar>
-                    <Nav navbar>
-                        <NavItem>
-                        <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                        <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
+            <Navbar color="faded" light className="shadow-sm" expand="md">
+                <NavbarBrand href="/" className="mr-auto">Timeline View</NavbarBrand>
+                    <NavbarToggler onClick={toggle} />
+                    <Collapse isOpen={collapsed} navbar>
+                    <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        <NavLink target="_blank" href="https://krishnaprasath.github.io/">Portfolio</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink target="_blank" href="https://github.com/KrishnaPrasath">GitHub</NavLink>
+                    </NavItem>
                     </Nav>
-                </Collapse>
+                    </Collapse>
             </Navbar>
         </>
     );

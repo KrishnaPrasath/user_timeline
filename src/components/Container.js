@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Container.css';
 import UserList from './UserList';
-import Timeline from './Timeline';
+import ModalView from './ModalView';
 import data from '../db.json';
 
 
@@ -9,15 +9,22 @@ const Container = () => {
 
     const [ members, setMembers ] =  useState(data.members);
     const [ activeUser, setActiveUser ] = useState(data.members[0]);
- 
+    const [ isClicked, setIsClicked ] = useState(false);
+
     const handleUserClick = ( id ) => {
         members.map( member=>{ 
             if(member.id === id){
-                setActiveUser(member)
+                setActiveUser(member);
+                setIsClicked(true);
                 return true;
             }
             return false;
         });
+    }
+
+    const handleModalClick = (e) => {
+        setIsClicked(!isClicked);
+
     }
 
     const getRandomColor = () => {
@@ -30,11 +37,9 @@ const Container = () => {
     }
 
     return(
-        <div className="wrapper container">
-            <UserList  members={ members }  handleUserClick={ handleUserClick } getRandomColor={getRandomColor}/>
-            <div className="app-wrapper">
-                <Timeline activeUser = { activeUser } getRandomColor={getRandomColor} />
-            </div>
+        <div className="wrapper container card">
+            <UserList  members={ members }  handleUserClick={ handleUserClick } getRandomColor={getRandomColor} />
+            { isClicked && <ModalView isClicked = { isClicked } handleModalClick = { handleModalClick } activeUser = { activeUser } getRandomColor={ getRandomColor }/> }
         </div>
     );
 }

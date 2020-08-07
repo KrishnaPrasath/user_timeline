@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 .user-wrapper{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    /* margin: 10px 0px; */
+    cursor: pointer;
+    
 }
 
 .profile-info{
     text-align: left;
-    padding: 0px 10px;
-    /* margin-top: 5px; */
+}
+
+.profile-info p{
+    margin-bottom: 0px;
+    padding-left: 10px;
 }
 
 .profile-picture{
@@ -15,9 +20,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin: 5px;
+    height:50px;
+    width:50px;
+    color: white;
 }
 
 .name{
-    font-weight: 600 ;
+    font-weight: 400 ;
+    font-family: 'DM Mono', monospace;
 }

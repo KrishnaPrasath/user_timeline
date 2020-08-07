@@ -1,0 +1,7 @@
+body{
+    font-family: 'roboto-mono', monospace;
+}
+
+.modal-dialog{
+    min-width : 50%;
+}
